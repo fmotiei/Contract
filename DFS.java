@@ -211,16 +211,19 @@ public class DFS {
 
     void check_r(Node v){
         v.type = "r" ;
-        if( v.child_size() == 1 )
+        if( v.get_child(0).type.equals("vf") )
             v.val = v.get_child(0).val + ";\n" ;
         else if( v.get_child(1).type.equals("deceleration") )
             check_deceleration(v);
         else if( v.get_child(1).type.equals("assignment"))
             check_assignment(v);
+        else if( v.get_child(1).type.equals("functionCall"))
+            v.val = concat_childs(v) + "; \n" ;
     }
 
     void check_constant(Node v){
         v.val = v.name ;
+        v.type = "Terminal";
     }
 
     void dfs(Node v){
