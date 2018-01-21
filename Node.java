@@ -39,5 +39,9 @@ public class Node {
         return child.get(i);
     }
 
+    public int child_size(){
+        return child.size() ;
+    }
+
 
 }
