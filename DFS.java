@@ -10,14 +10,14 @@ public class DFS {
     ArrayList<String> functions_returnType ;
     ArrayList<String> functions_inputType ;
 
-    String concat_childs(Node v){
+    private String concat_childs(Node v){
         String s = "";
         for( int i = 0 ; i < v.child_size() ; i ++ )
-            s.concat(v.get_child(i).val) ;
+            s = s.concat(v.get_child(i).val) ;
         return s ;
     }
 
-    void check_vg(Node v){
+    private void check_vg(Node v){
         if( v.get_child(0).name.equals("::")){
             v.type = "deceleration" ;
             v.val = v.get_child(1).val ;
@@ -32,12 +32,12 @@ public class DFS {
         }
     }
 
-    void check_ex(Node v){
+    private void check_ex(Node v){
         v.type = "ex";
         v.val = concat_childs(v) ;
     }
 
-    void check_b(Node v){
+    private void check_b(Node v){
         v.type = "ex";
         if( v.child_size() == 0){
             v.val = "" ;
@@ -46,7 +46,7 @@ public class DFS {
             v.val = concat_childs(v);
     }
 
-    void check_vc(Node v){
+    private void check_vc(Node v){
         v.type = "vc" ;
         if( v.get_child(1).type.equals( "ve" ))
             v.val = concat_childs(v);
@@ -58,7 +58,7 @@ public class DFS {
             v.val = v.get_child(0).val ;
     }
 
-    void check_vf(Node v){
+    private void check_vf(Node v){
         v.type = "vf" ;
         if( v.get_child(0).name.equals( "mkdate"))
             v.val = concat_childs(v) ;
@@ -75,7 +75,7 @@ public class DFS {
 
     }
 
-    void check_vd(Node v){
+    private void check_vd(Node v){
         v.type = "vd" ;
         if( v.child_size() == 0 )
             v.val = "" ;
@@ -83,17 +83,17 @@ public class DFS {
             v.val = concat_childs(v) ;
     }
 
-    void check_ars(Node v){
+    private void check_ars(Node v){
         v.type = "ars";
         v.val = concat_childs(v) ;
     }
 
-    void check_ar(Node v){
+    private void check_ar(Node v){
         v.type = "ar" ;
         v.val = v.get_child(0).val ;
     }
 
-    void check_ve(Node v){
+    private void check_ve(Node v){
         v.type = "ve" ;
         if( v.child_size() == 0 )
             v.val = "" ;
@@ -101,7 +101,7 @@ public class DFS {
             v.val = concat_childs(v) ;
     }
 
-    void check_vj(Node v){
+    private void check_vj(Node v){
         v.type = "vj" ;
         if( v.child_size() == 0 )
             v.val = "" ;
@@ -109,7 +109,7 @@ public class DFS {
             v.val = v.get_child(0).val ;
     }
 
-    void check_vb(Node v){
+    private void check_vb(Node v){
         if( v.get_child(0).type.equals( "df" ) )
             v.type = "df" ;
         else
@@ -117,12 +117,12 @@ public class DFS {
         v.val = v.get_child(0).val ;
     }
 
-    void check_df(Node v){
+    private void check_df(Node v){
         v.type = "df" ;
         v.val = concat_childs(v) ;
     }
 
-    void check_va(Node v){
+    private void check_va(Node v){
         v.type = "va" ;
         if( v.child_size() == 0 )
             v.val = "" ;
@@ -130,7 +130,7 @@ public class DFS {
             v.val = concat_childs(v) ;
     }
 
-    void set_function(String type){
+    private void set_function(String type){
         int i = 0 ;
         while (type.charAt(i) != '-'){
             i ++ ;
@@ -142,7 +142,7 @@ public class DFS {
 
     }
 
-    void check_deceleration(Node v){
+    private void check_deceleration(Node v){
         if(v.get_child(1).get_child(1).type.equals("vb") ){
             String s = v.get_child(1).name ;
             if( s.equals("Int")) {
@@ -168,7 +168,7 @@ public class DFS {
         }
     }
 
-    boolean is_T(String s){
+    private boolean is_T(String s){
         for( int i = 0 ; i < integers.size() ; i ++ )
             if( integers.get(i).equals(s) )
                 return true ;
@@ -191,25 +191,26 @@ public class DFS {
         return false ;
     }
 
-    int is_function(String s){
+    private int is_function(String s){
         for( int i = 0 ; i < functions.size() ; i ++ )
             if( functions.get(i).equals(s) )
                 return i ;
         return -1 ;
     }
 
-    void check_assignment(Node v){
+    private void check_assignment(Node v){
         if( is_T(v.get_child(0).name))
             v.val = v.get_child(0).val + " = " + v.get_child(1).val + "; \n" ;
 
         int x = is_function(v.get_child(0).name);
         if( x != -1 )
+            v.type = "function_assignment";
             v.val = functions_returnType.get(x) + " " + v.get_child(0).val + functions_inputType.get(x) + "{"
                     + "return " + v.get_child(1).val + " ; } \n " ;
 
     }
 
-    void check_r(Node v){
+    private void check_r(Node v){
         v.type = "r" ;
         if( v.get_child(0).type.equals("vf") )
             v.val = v.get_child(0).val + ";\n" ;
@@ -226,7 +227,7 @@ public class DFS {
         v.type = "Terminal";
     }
 
-    void dfs(Node v){
+    public void dfs(Node v){
 
         for( int i = 0 ; i < v.child_size() ; i ++ )
             dfs(v.get_child(i));
