@@ -12,7 +12,7 @@ ve : | '(' ars ')';
 ar : ex;
 ars : ar (','ar)*;
 vd : |'.'vj;
-vf : 'mkdate (' ar ',' ar ')' | ('and' | 'then' | 'scaleX' | 'scale' | 'truncate') '(' ar ',' ar ')' | 'one()' | 'give(' ar ')';
+vf : 'mkdate' '(' ar ',' ar ')' | ('and' | 'then' | 'scaleX' | 'scale' | 'truncate') '(' ar ',' ar ')' | 'one()' | 'give' '(' ar ')';
 vc : N ve | VI vd | '(' ex ')' | vf;
 b : | ('+' | '-' | '*' | '/') vc b;
 ex : vc b;

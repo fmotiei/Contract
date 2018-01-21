@@ -1,2 +1,1 @@
-c1 :: Contract
-c1 = scale(20, give(one()))
+c1 = one()
