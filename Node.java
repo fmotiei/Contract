@@ -5,6 +5,16 @@ public class Node {
     String val ;
     String type ;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    String name ;
+
     public String getVal() {
         return val;
     }
