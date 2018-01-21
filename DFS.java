@@ -62,8 +62,10 @@ public class DFS {
         v.type = "vf" ;
         if( v.get_child(0).name.equals( "mkdate"))
             v.val = concat_childs(v) ;
-        else if( v.get_child(0).name.equals( "and") ||  v.get_child(0).name.equals( "then") ||  v.get_child(0).name.equals( "scale") || v.get_child(0).name.equals("truncate" ))
+        else if( v.get_child(0).name.equals( "then") ||  v.get_child(0).name.equals( "scale") || v.get_child(0).name.equals("truncate" ))
             v.val = concat_childs(v) ;
+        else if( v.get_child(0).name.equals( "and") )
+            v.val = "andFunc( " + v.get_child(2).val + v.get_child(3).val + v.get_child(4).val + v.get_child(5).val ;
         else if( v.get_child(0).name.equals( "scaleX"))
             v.val = "scale( " + v.get_child(2).val + "( T )" + v.get_child(4).val + ")" ;
         else if( v.get_child(0).name.equals( "one()" ))
@@ -217,6 +219,10 @@ public class DFS {
             check_assignment(v);
     }
 
+    void check_constant(Node v){
+        v.val = v.name ;
+    }
+
     void dfs(Node v){
 
         for( int i = 0 ; i < v.child_size() ; i ++ )
@@ -263,6 +269,8 @@ public class DFS {
 
         if( v.name.equals("r"))
             check_r(v);
+        else
+            check_constant(v);
     }
 
 
