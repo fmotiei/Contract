@@ -198,7 +198,7 @@ public class DFS {
 
     void check_assignment(Node v){
         if( is_T(v.get_child(0).name))
-            v.val = v.get_child(0).val + ".val = " + v.get_child(1).val + "; \n" ;
+            v.val = v.get_child(0).val + " = " + v.get_child(1).val + "; \n" ;
 
         int x = is_function(v.get_child(0).name);
         if( x != -1 )
