@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Initial_CPP_codes {
     String init(){
         return "#include <iostream>\n" +
@@ -5,13 +7,11 @@ public class Initial_CPP_codes {
                 "#include <algorithm>\n" +
                 "\n" +
                 "\n" +
-                "using namespace std ;\n" +
-                "\n" +
-                "int T ;";
+                "using namespace std ;\n" ;
     }
 
     String contractClass(){
-        return "class Contract{\n" +
+        return "struct Contract{\n" +
                 "public:\n" +
                 "    int date ;\n" +
                 "    double val ;\n" +
@@ -71,5 +71,42 @@ public class Initial_CPP_codes {
                 "    else\n" +
                 "        return c1 ;\n" +
                 "}";
+    }
+
+    String initial_variable(){
+        return "\n" +
+                "int T ;\n" +
+                "vector<Contract> contracts ;";
+    }
+
+    String ValueOfContract(){
+        return "double ValueOfContract(Contract c1){\n" +
+                "    if( T <= c1.date )\n" +
+                "        return c1.val ;\n" +
+                "    else\n" +
+                "        return c1.val ;\n" +
+                "}\n";
+    }
+
+    String algorithm(String main_code, ArrayList<String> contracts, int T){
+        String code = "\n" +
+                "    int T = " + Integer.toString(T) +" ;\n" +
+                "    double Ans = 0 ;\n" +
+                "    int FirstT = T ;\n" +
+                "    int Contract1 = 0 ;\n" ;
+        for( int i = 0 ; i < contracts.size() ; i++ ){
+            String code_contract = "Contract1 = 0 ;\n" +
+                    "        for (int t = 0; t < 365 * 24; t++) {\n" +
+                    "            T = FirstT + t;\n" +
+                    main_code + "\n" +
+                    "            int Value = ValueOfContract("+contracts.get(i)+");\n" +
+                    "            Contract1 = max( Contract1,Value);\n" +
+                    "        }\n" +
+                    "        Ans += Contract1 ;\n";
+            code = code.concat(code_contract);
+        }
+        code = code.concat("cout << Ans << endl ;\n");
+        return code ;
+
     }
 }
