@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
+import java.util.Scanner;
 
 /**
  * Created by kosar on 1/22/18.
@@ -16,11 +17,12 @@ public class TreeUtil {
 
     public static void main(String[] args) throws IOException {
         String input = "c1 = one()";
-        printDrink(input);
+        getParseTree(input);
     }
-    public static void printDrink(String drinkSentence) throws IOException {
+
+    public static Node getParseTree(String input) throws IOException {
         // Get our lexer
-        InputStream stream = new ByteArrayInputStream(drinkSentence.getBytes(StandardCharsets.UTF_8));
+        InputStream stream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         contractGrammarLexer lexer = new contractGrammarLexer(CharStreams.fromStream(stream, StandardCharsets.UTF_8));
 
         // Get a list of matched tokens
@@ -36,8 +38,7 @@ public class TreeUtil {
         ParseTreeWalker walker = new ParseTreeWalker();
         contractListener listener = new contractListener();
         walker.walk(listener, rContext);
-        Node root = listener.nodes.get(listener.rootHash);
-        System.out.println(root.walk());
+        return listener.nodes.get(listener.rootHash);
     }
 }
 
@@ -49,8 +50,6 @@ class contractListener extends contractGrammarBaseListener {
         Node node = new Node("r");
         nodes.put(String.valueOf(ctx.hashCode()), node);
         rootHash = String.valueOf(ctx.hashCode());
-//        System.out.println("enterR: " + ctx.getText());
-//        System.out.println("toString: " + ctx.hashCode());
     }
 
     @Override
@@ -61,9 +60,6 @@ class contractListener extends contractGrammarBaseListener {
         if (parent != null) {
             parent.child.add(node);
         }
-//        System.out.println("enterVa: " + ctx.getText());
-//        System.out.println("toString: " + ctx.hashCode());
-
     }
 
     @Override
@@ -74,9 +70,6 @@ class contractListener extends contractGrammarBaseListener {
         if (parent != null) {
             parent.child.add(node);
         }
-//        System.out.println("enterDf: " + ctx.getText());
-//        System.out.println("toString: " + ctx.hashCode());
-
     }
 
     @Override
@@ -87,9 +80,6 @@ class contractListener extends contractGrammarBaseListener {
         if (parent != null) {
             parent.child.add(node);
         }
-//        System.out.println("enterVb: " + ctx.getText());
-//        System.out.println("toString: " + ctx.hashCode());
-
     }
 
     @Override
@@ -100,9 +90,6 @@ class contractListener extends contractGrammarBaseListener {
         if (parent != null) {
             parent.child.add(node);
         }
-//        System.out.println("enterVj: " + ctx.getText());
-//        System.out.println("toString: " + ctx.hashCode());
-
     }
 
     @Override
@@ -113,9 +100,6 @@ class contractListener extends contractGrammarBaseListener {
         if (parent != null) {
             parent.child.add(node);
         }
-//        System.out.println("enterVe: " + ctx.getText());
-//        System.out.println("toString: " + ctx.hashCode());
-
     }
 
     @Override
@@ -126,9 +110,6 @@ class contractListener extends contractGrammarBaseListener {
         if (parent != null) {
             parent.child.add(node);
         }
-//        System.out.println("enterAr: " + ctx.getText());
-//        System.out.println("toString: " + ctx.hashCode());
-
     }
 
     @Override
@@ -139,9 +120,6 @@ class contractListener extends contractGrammarBaseListener {
         if (parent != null) {
             parent.child.add(node);
         }
-//        System.out.println("enterArs: " + ctx.getText());
-//        System.out.println("toString: " + ctx.hashCode());
-
     }
 
     @Override
@@ -152,9 +130,6 @@ class contractListener extends contractGrammarBaseListener {
         if (parent != null) {
             parent.child.add(node);
         }
-//        System.out.println("enterVd: " + ctx.getText());
-//        System.out.println("toString: " + ctx.hashCode());
-
     }
 
     @Override
@@ -165,9 +140,6 @@ class contractListener extends contractGrammarBaseListener {
         if (parent != null) {
             parent.child.add(node);
         }
-//        System.out.println("enterVf: " + ctx.getText());
-//        System.out.println("toString: " + ctx.hashCode());
-
     }
 
     @Override
@@ -178,9 +150,6 @@ class contractListener extends contractGrammarBaseListener {
         if (parent != null) {
             parent.child.add(node);
         }
-//        System.out.println("enterVc: " + ctx.getText());
-//        System.out.println("toString: " + ctx.hashCode());
-
     }
 
     @Override
@@ -191,9 +160,6 @@ class contractListener extends contractGrammarBaseListener {
         if (parent != null) {
             parent.child.add(node);
         }
-//        System.out.println("enterB: " + ctx.getText());
-//        System.out.println("toString: " + ctx.hashCode());
-
     }
 
     @Override
@@ -204,9 +170,6 @@ class contractListener extends contractGrammarBaseListener {
         if (parent != null) {
             parent.child.add(node);
         }
-//        System.out.println("enterEx: " + ctx.getText());
-//        System.out.println("toString: " + ctx.hashCode());
-
     }
 
     @Override
@@ -217,79 +180,6 @@ class contractListener extends contractGrammarBaseListener {
         if (parent != null) {
             parent.child.add(node);
         }
-//        System.out.println("enterVg: " + ctx.getText());
-//        System.out.println("toString: " + ctx.hashCode());
-
-    }
-
-    @Override
-    public void exitR(contractGrammarParser.RContext ctx) {
-//        System.out.println("exitR: " + ctx.getText());
-    }
-
-    @Override
-    public void exitVa(contractGrammarParser.VaContext ctx) {
-//        System.out.println("exitVa: " + ctx.getText());
-    }
-
-    @Override
-    public void exitDf(contractGrammarParser.DfContext ctx) {
-//        System.out.println("exitDf: " + ctx.getText());
-    }
-
-    @Override
-    public void exitVb(contractGrammarParser.VbContext ctx) {
-//        System.out.println("exitVb: " + ctx.getText());
-    }
-
-    @Override
-    public void exitVj(contractGrammarParser.VjContext ctx) {
-//        System.out.println("exitVj: " + ctx.getText());
-    }
-
-    @Override
-    public void exitVe(contractGrammarParser.VeContext ctx) {
-//        System.out.println("exitVe: " + ctx.getText());
-    }
-
-    @Override
-    public void exitAr(contractGrammarParser.ArContext ctx) {
-//        System.out.println("exitAr: " + ctx.getText());
-    }
-
-    @Override
-    public void exitArs(contractGrammarParser.ArsContext ctx) {
-//        System.out.println("exitArs: " + ctx.getText());
-    }
-
-    @Override
-    public void exitVd(contractGrammarParser.VdContext ctx) {
-//        System.out.println("exitVd: " + ctx.getText());
-    }
-
-    @Override
-    public void exitVf(contractGrammarParser.VfContext ctx) {
-//        System.out.println("exitVf: " + ctx.getText());
-    }
-
-    @Override
-    public void exitVc(contractGrammarParser.VcContext ctx) {
-//        System.out.println("exitVc: " + ctx.getText());
-    }
-
-    @Override
-    public void exitB(contractGrammarParser.BContext ctx) {
-//        System.out.println("exitB: " + ctx.getText());
-    }
-
-    @Override
-    public void exitEx(contractGrammarParser.ExContext ctx) {
-//        System.out.println("exitEx: " + ctx.getText());
-    }
-
-    @Override
-    public void exitVg(contractGrammarParser.VgContext ctx) {
-//        System.out.println("exitVg: " + ctx.getText());
     }
 
     @Override
@@ -300,6 +190,5 @@ class contractListener extends contractGrammarBaseListener {
         if (parent != null) {
             parent.child.add(myNode);
         }
-//        System.out.println(node.getText());
     }
 }
