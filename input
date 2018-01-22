@@ -1,1 +1,1 @@
-c1 = one()
+c1 = kossar(one(), one())
