@@ -1,1 +1,1 @@
-c1 = kossar(one(), one())
+c1 :: TimeFunc(Date)->Double

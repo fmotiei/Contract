@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
-import java.util.Scanner;
+
 
 /**
  * Created by kosar on 1/22/18.
@@ -16,8 +16,8 @@ import java.util.Scanner;
 public class TreeUtil {
 
     public static void main(String[] args) throws IOException {
-        String input = "c1 = one()";
-        getParseTree(input);
+        String input = "c1 :: TimeFunc(Date) -> Double";
+        System.out.println(getParseTree(input).walk());
     }
 
     public static Node getParseTree(String input) throws IOException {
@@ -38,6 +38,7 @@ public class TreeUtil {
         ParseTreeWalker walker = new ParseTreeWalker();
         contractListener listener = new contractListener();
         walker.walk(listener, rContext);
+
         return listener.nodes.get(listener.rootHash);
     }
 }

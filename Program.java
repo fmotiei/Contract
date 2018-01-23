@@ -1,17 +1,18 @@
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Program {
-    String make_CPP_code(ArrayList<String> contract_code,ArrayList<String> contracts, int T){
+    String make_CPP_code(ArrayList<String> contract_code,ArrayList<String> contracts, int T) throws IOException {
         String top_code = "" ;
         String main_code = "" ;
+        DFS g = new DFS();
         for( int i = 0 ; i < contract_code.size() ; i ++ ){
-            Node root = new Node() ;//TODO graph root for contract_code.get(i)
-            DFS g = new DFS();
+            Node root = TreeUtil.getParseTree(contract_code.get(i)) ;
             g.dfs(root);
             if( root.type.equals("function_assignment"))
                 top_code = top_code.concat(root.val);
             else
-                main_code = main_code.concat(root.val);
+                main_code = main_code.concat("      "+root.val);
 
         }
         String cpp_code = "" ;

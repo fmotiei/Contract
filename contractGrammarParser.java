@@ -18,7 +18,7 @@ public class contractGrammarParser extends Parser {
 	public static final int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
 		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, T__16=17, 
-		T__17=18, T__18=19, T__19=20, T__20=21, N=22, T=23, VI=24, DT=25, WS=26;
+		T__17=18, T__18=19, N=20, T=21, VI=22, DT=23, WS=24;
 	public static final int
 		RULE_r = 0, RULE_va = 1, RULE_df = 2, RULE_vb = 3, RULE_vj = 4, RULE_ve = 5, 
 		RULE_ar = 6, RULE_ars = 7, RULE_vd = 8, RULE_vf = 9, RULE_vc = 10, RULE_b = 11, 
@@ -29,14 +29,14 @@ public class contractGrammarParser extends Parser {
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "','", "'('", "') -> '", "')'", "'.'", "'mkdate'", "'and'", "'then'", 
-		"'scaleX'", "'scale'", "'truncate'", "'['", "']'", "'one()'", "'give'", 
-		"'+'", "'-'", "'*'", "'/'", "'::'", "'='", null, null, null, "'TimeFunc(Date) -> Double'"
+		null, "','", "'('", "')->'", "')'", "'.'", "'mkdate'", "'and'", "'then'", 
+		"'scaleX'", "'scale'", "'truncate'", "'one()'", "'give'", "'+'", "'-'", 
+		"'*'", "'/'", "'::'", "'='", null, null, null, "'TimeFunc(Date)->Double'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, null, null, null, null, null, null, null, null, null, null, null, 
-		null, null, null, null, null, null, null, null, null, null, "N", "T", 
-		"VI", "DT", "WS"
+		null, null, null, null, null, null, null, null, "N", "T", "VI", "DT", 
+		"WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -128,7 +128,7 @@ public class contractGrammarParser extends Parser {
 			setState(33);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__5) | (1L << T__6) | (1L << T__7) | (1L << T__8) | (1L << T__9) | (1L << T__10) | (1L << T__13) | (1L << T__14) | (1L << N))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__5) | (1L << T__6) | (1L << T__7) | (1L << T__8) | (1L << T__9) | (1L << T__10) | (1L << T__11) | (1L << T__12) | (1L << N))) != 0)) {
 				{
 				setState(31);
 				_errHandler.sync(this);
@@ -147,8 +147,8 @@ public class contractGrammarParser extends Parser {
 				case T__8:
 				case T__9:
 				case T__10:
-				case T__13:
-				case T__14:
+				case T__11:
+				case T__12:
 					{
 					setState(30);
 					vf();
@@ -385,13 +385,12 @@ public class contractGrammarParser extends Parser {
 			case T__8:
 			case T__9:
 			case T__10:
+			case T__11:
 			case T__12:
 			case T__13:
 			case T__14:
 			case T__15:
 			case T__16:
-			case T__17:
-			case T__18:
 			case N:
 				enterOuterAlt(_localctx, 2);
 				{
@@ -446,13 +445,12 @@ public class contractGrammarParser extends Parser {
 			case T__8:
 			case T__9:
 			case T__10:
+			case T__11:
 			case T__12:
 			case T__13:
 			case T__14:
 			case T__15:
 			case T__16:
-			case T__17:
-			case T__18:
 			case N:
 				enterOuterAlt(_localctx, 1);
 				{
@@ -616,13 +614,12 @@ public class contractGrammarParser extends Parser {
 			case T__8:
 			case T__9:
 			case T__10:
+			case T__11:
 			case T__12:
 			case T__13:
 			case T__14:
 			case T__15:
 			case T__16:
-			case T__17:
-			case T__18:
 			case N:
 				enterOuterAlt(_localctx, 1);
 				{
@@ -716,7 +713,7 @@ public class contractGrammarParser extends Parser {
 					consume();
 				}
 				setState(87);
-				match(T__11);
+				match(T__1);
 				setState(88);
 				ar();
 				setState(89);
@@ -724,21 +721,21 @@ public class contractGrammarParser extends Parser {
 				setState(90);
 				ar();
 				setState(91);
-				match(T__12);
+				match(T__3);
 				}
 				break;
-			case T__13:
+			case T__11:
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(93);
-				match(T__13);
+				match(T__11);
 				}
 				break;
-			case T__14:
+			case T__12:
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(94);
-				match(T__14);
+				match(T__12);
 				setState(95);
 				match(T__1);
 				setState(96);
@@ -833,8 +830,8 @@ public class contractGrammarParser extends Parser {
 			case T__8:
 			case T__9:
 			case T__10:
-			case T__13:
-			case T__14:
+			case T__11:
+			case T__12:
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(109);
@@ -894,23 +891,22 @@ public class contractGrammarParser extends Parser {
 			case T__8:
 			case T__9:
 			case T__10:
+			case T__11:
 			case T__12:
-			case T__13:
-			case T__14:
 			case N:
 				enterOuterAlt(_localctx, 1);
 				{
 				}
 				break;
+			case T__13:
+			case T__14:
 			case T__15:
 			case T__16:
-			case T__17:
-			case T__18:
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(113);
 				_la = _input.LA(1);
-				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__15) | (1L << T__16) | (1L << T__17) | (1L << T__18))) != 0)) ) {
+				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__13) | (1L << T__14) | (1L << T__15) | (1L << T__16))) != 0)) ) {
 				_errHandler.recoverInline(this);
 				}
 				else {
@@ -1014,11 +1010,11 @@ public class contractGrammarParser extends Parser {
 			setState(130);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
-			case T__19:
+			case T__17:
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(122);
-				match(T__19);
+				match(T__17);
 				setState(123);
 				vb();
 				}
@@ -1034,11 +1030,11 @@ public class contractGrammarParser extends Parser {
 				match(T__3);
 				}
 				break;
-			case T__20:
+			case T__18:
 				enterOuterAlt(_localctx, 3);
 				{
 				setState(128);
-				match(T__20);
+				match(T__18);
 				setState(129);
 				ex();
 				}
@@ -1059,7 +1055,7 @@ public class contractGrammarParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\34\u0087\4\2\t\2"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\32\u0087\4\2\t\2"+
 		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
 		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\3\2\3\2\3\2\7\2\"\n\2\f\2\16"+
 		"\2%\13\2\3\3\3\3\3\3\3\3\5\3+\n\3\3\4\3\4\3\4\3\4\3\4\3\4\3\5\3\5\3\5"+
@@ -1069,28 +1065,28 @@ public class contractGrammarParser extends Parser {
 		"\13\3\13\3\13\5\13f\n\13\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\5\fq\n\f"+
 		"\3\r\3\r\3\r\3\r\3\r\5\rx\n\r\3\16\3\16\3\16\3\17\3\17\3\17\3\17\3\17"+
 		"\3\17\3\17\3\17\5\17\u0085\n\17\3\17\2\2\20\2\4\6\b\n\f\16\20\22\24\26"+
-		"\30\32\34\2\4\3\2\t\r\3\2\22\25\2\u008a\2#\3\2\2\2\4*\3\2\2\2\6,\3\2\2"+
+		"\30\32\34\2\4\3\2\t\r\3\2\20\23\2\u008a\2#\3\2\2\2\4*\3\2\2\2\6,\3\2\2"+
 		"\2\b\65\3\2\2\2\n9\3\2\2\2\f@\3\2\2\2\16B\3\2\2\2\20D\3\2\2\2\22O\3\2"+
 		"\2\2\24e\3\2\2\2\26p\3\2\2\2\30w\3\2\2\2\32y\3\2\2\2\34\u0084\3\2\2\2"+
-		"\36\37\7\30\2\2\37\"\5\34\17\2 \"\5\24\13\2!\36\3\2\2\2! \3\2\2\2\"%\3"+
-		"\2\2\2#!\3\2\2\2#$\3\2\2\2$\3\3\2\2\2%#\3\2\2\2&\'\7\3\2\2\'(\7\31\2\2"+
-		"(+\5\4\3\2)+\3\2\2\2*&\3\2\2\2*)\3\2\2\2+\5\3\2\2\2,-\7\4\2\2-.\7\31\2"+
-		"\2./\5\4\3\2/\60\7\5\2\2\60\61\7\31\2\2\61\7\3\2\2\2\62\66\7\31\2\2\63"+
-		"\66\5\6\4\2\64\66\7\33\2\2\65\62\3\2\2\2\65\63\3\2\2\2\65\64\3\2\2\2\66"+
-		"\t\3\2\2\2\67:\7\32\2\28:\3\2\2\29\67\3\2\2\298\3\2\2\2:\13\3\2\2\2;A"+
+		"\36\37\7\26\2\2\37\"\5\34\17\2 \"\5\24\13\2!\36\3\2\2\2! \3\2\2\2\"%\3"+
+		"\2\2\2#!\3\2\2\2#$\3\2\2\2$\3\3\2\2\2%#\3\2\2\2&\'\7\3\2\2\'(\7\27\2\2"+
+		"(+\5\4\3\2)+\3\2\2\2*&\3\2\2\2*)\3\2\2\2+\5\3\2\2\2,-\7\4\2\2-.\7\27\2"+
+		"\2./\5\4\3\2/\60\7\5\2\2\60\61\7\27\2\2\61\7\3\2\2\2\62\66\7\27\2\2\63"+
+		"\66\5\6\4\2\64\66\7\31\2\2\65\62\3\2\2\2\65\63\3\2\2\2\65\64\3\2\2\2\66"+
+		"\t\3\2\2\2\67:\7\30\2\28:\3\2\2\29\67\3\2\2\298\3\2\2\2:\13\3\2\2\2;A"+
 		"\3\2\2\2<=\7\4\2\2=>\5\20\t\2>?\7\6\2\2?A\3\2\2\2@;\3\2\2\2@<\3\2\2\2"+
 		"A\r\3\2\2\2BC\5\32\16\2C\17\3\2\2\2DI\5\16\b\2EF\7\3\2\2FH\5\16\b\2GE"+
 		"\3\2\2\2HK\3\2\2\2IG\3\2\2\2IJ\3\2\2\2J\21\3\2\2\2KI\3\2\2\2LP\3\2\2\2"+
 		"MN\7\7\2\2NP\5\n\6\2OL\3\2\2\2OM\3\2\2\2P\23\3\2\2\2QR\7\b\2\2RS\7\4\2"+
-		"\2ST\5\16\b\2TU\7\3\2\2UV\5\16\b\2VW\7\6\2\2Wf\3\2\2\2XY\t\2\2\2YZ\7\16"+
-		"\2\2Z[\5\16\b\2[\\\7\3\2\2\\]\5\16\b\2]^\7\17\2\2^f\3\2\2\2_f\7\20\2\2"+
-		"`a\7\21\2\2ab\7\4\2\2bc\5\16\b\2cd\7\6\2\2df\3\2\2\2eQ\3\2\2\2eX\3\2\2"+
-		"\2e_\3\2\2\2e`\3\2\2\2f\25\3\2\2\2gh\7\30\2\2hq\5\f\7\2ij\7\32\2\2jq\5"+
+		"\2ST\5\16\b\2TU\7\3\2\2UV\5\16\b\2VW\7\6\2\2Wf\3\2\2\2XY\t\2\2\2YZ\7\4"+
+		"\2\2Z[\5\16\b\2[\\\7\3\2\2\\]\5\16\b\2]^\7\6\2\2^f\3\2\2\2_f\7\16\2\2"+
+		"`a\7\17\2\2ab\7\4\2\2bc\5\16\b\2cd\7\6\2\2df\3\2\2\2eQ\3\2\2\2eX\3\2\2"+
+		"\2e_\3\2\2\2e`\3\2\2\2f\25\3\2\2\2gh\7\26\2\2hq\5\f\7\2ij\7\30\2\2jq\5"+
 		"\22\n\2kl\7\4\2\2lm\5\32\16\2mn\7\6\2\2nq\3\2\2\2oq\5\24\13\2pg\3\2\2"+
 		"\2pi\3\2\2\2pk\3\2\2\2po\3\2\2\2q\27\3\2\2\2rx\3\2\2\2st\t\3\2\2tu\5\26"+
 		"\f\2uv\5\30\r\2vx\3\2\2\2wr\3\2\2\2ws\3\2\2\2x\31\3\2\2\2yz\5\26\f\2z"+
-		"{\5\30\r\2{\33\3\2\2\2|}\7\26\2\2}\u0085\5\b\5\2~\177\7\4\2\2\177\u0080"+
-		"\5\20\t\2\u0080\u0081\7\6\2\2\u0081\u0085\3\2\2\2\u0082\u0083\7\27\2\2"+
+		"{\5\30\r\2{\33\3\2\2\2|}\7\24\2\2}\u0085\5\b\5\2~\177\7\4\2\2\177\u0080"+
+		"\5\20\t\2\u0080\u0081\7\6\2\2\u0081\u0085\3\2\2\2\u0082\u0083\7\25\2\2"+
 		"\u0083\u0085\5\32\16\2\u0084|\3\2\2\2\u0084~\3\2\2\2\u0084\u0082\3\2\2"+
 		"\2\u0085\35\3\2\2\2\16!#*\659@IOepw\u0084";
 	public static final ATN _ATN =

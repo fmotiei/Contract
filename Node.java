@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Node {
     ArrayList<Node> child;
-    String val;
-    String type;
+    String val = "";
+    String type = "";
 
     public Node(String name) {
         this.name = name;
