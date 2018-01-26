@@ -64,9 +64,9 @@ public class Initial_CPP_codes {
 
     String truncate(){
         return "Contract truncate(int d,Contract c1){\n" +
-                "    c1.date = d ;\n" +
+                "    c1.date = min(c1.date,d) ;\n" +
                 "    return c1 ;\n" +
-                "}\n";
+                "}";
     }
 
     String then(){
